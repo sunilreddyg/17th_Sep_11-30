@@ -1,9 +1,7 @@
 package datadriven.csvfiles;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-
 import com.opencsv.CSVReader;
 
 public class CsvFile_Read_Multiple_files 
