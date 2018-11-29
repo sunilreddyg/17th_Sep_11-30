@@ -1,0 +1,312 @@
+
+Example1:--->
+Recognize object with unique attributes
+
+<html>
+<body>
+	<div id="reg_login"  class="form">
+		<input id="email" type="text"></input>  ------>>>>TargetElement
+	</div>
+</body>
+</html>
+
+Syntax:-->
+		//tagname[@property='propertyvalue']
+
+		//input[@id='email']
+-------------------------------------------------------------------
+
+Example2:--->
+Recognize object when parent element having single child element.
+------------->Html Source--------->   
+
+<html>
+<body>
+	<div id="reg_container"  class="form">
+		<input id="email" type="text"></input>
+	</div>
+
+	<div id="reg_login"  class="form">
+		<input id="email" type="text"></input>  ------>>>>TargetElement
+	</div>
+</body>
+</html>
+
+Syntax:--->
+			parentElement/childtagname
+		
+		//div[@id='reg_login']/input
+
+------------------------------------------------------------------------
+Example3:-->
+Recognize object when parent element having Group child element
+------------->Html Source--------->   
+
+<html>
+<body>
+	<div id="reg_container"  class="form">
+		<input id="email" type="text"></input>
+	</div>
+
+	<div id="reg_login"  class="form">
+		<input id="sample" class="abc"></input>
+		<input id="email" type="text"></input>  ------>>>>TargetElement	
+	</div>
+</body>
+</html>		
+		
+syntax:-->
+		//parentagname[property='propertyvalue']/childtagname[prop='propvalue']
+		
+		//div[@id='reg_login']/input[@id='email']
+--------------------------------------------------------------------------
+Example4:--> Absolute xpath
+	
+HtmlSource:-->
+
+	<html>
+		<body>
+			<div id="reg_container"  class="form">
+				<input id="email" type="text"></input>
+			</div>
+
+			<div id="reg_login"  class="form">
+				<input id="sample" class="abc"></input>
+				<input id="email" type="text"></input>  ------>>>>TargetElement	
+			</div>
+		</body>
+	</html>			
+		
+		
+		Syntax:--> 
+				tagname[int position]
+			
+				/html/body/div[2]/input[2]
+		
+--------------------------------------------------------------------	
+Example3:-->
+Recognize object when parent-element having duplicate child-elements
+Htmlsource:--->
+
+<html>
+<body>
+	<div id="reg_login"  class="form">
+		<input id="sample" class="abc"></input>
+		<input id="sample" class="abc"></input>  ------>>>>TargetElement
+	</div>
+</body>
+</html>		
+		
+Xpath position:-->
+			//parenttagname[@prop='propvalue']/childtagname[int pos]
+		
+			
+			
+			
+-------------------------------------------------------------------------
+Example4:-->
+Recognize object with multiple attributes[using <AND> comparision]
+
+Htmlsource:--->
+
+<html>
+<body>
+	<div id="reg_container"  class="form">
+		<input id="email" type="text"></input>
+	</div>
+
+	<div id="reg_login"  class="form">
+		<input id="sample" class="abc"></input>
+		<input id="email" type="email"></input>  ------>>>>TargetElement	
+	</div>
+</body>
+</html>	
+
+
+Syntax:-->
+			//tagname[@prop='pvalue'  and  @prop='pvalue']
+
+			//input[@id='email' and @type='email']
+----------------------------------------------------------------------------
+Example5:-->
+Recognize object with multiple attributes[using <OR> comparision]		
+	
+HtmlSource:-->		
+<html>
+<body>
+	<div id="reg_login"  class="form">
+		<input id="sample" class="abc"></input>
+		<input id="sample" name="user"></input>  ------>>>>TargetElement	
+	</div>
+</body>
+</html>	
+
+Syntax:-->
+		 //tagname[@prop='pvalue' or @prop='pvalue']
+		 //tagname[@prop='pvalue' or text()='visibletext']
+		 
+		 //input[@id='sample' or @name='user']
+----------------------------------------------------------------------------
+Example6:-->
+		Example with and operator
+		//tagname[@prop='pvalue'  and  @prop='pvalue']
+		//tagname[@prop='pvalue'  and text()='visibletext']
+
+		 Example with or operator
+		 //tagname[@prop='pvalue' or @prop='pvalue']
+		 //tagname[@prop='pvalue' or text()='visibletext']
+		 
+Recognize object with multiple attributes[using <OR> <And> comparision]		
+		//*[@prop='pvalue' and (@prop='pvalue' or  @prop='pvalue')]
+		 //*[@prop='pvalue' or (@prop='pvalue' and  @prop='pvalue')]
+----------------------------------------------------------------------------
+Example7:-->
+		Recongize object using parital attribute or text
+
+
+	Syntax:-->
+		Recognize object using matching characters
+			//tagname[contains(@prop , 'pvalue')]
+			//tagname[contains(text() , 'partial visibletext')]
+			
+		Recognize object using parital attribute or text using start characters
+		
+			//tagname[starts-with(@prop , 'pvalue')]
+			//tagname[starts-with(text() , 'text start chars')]
+			
+		Recognize object using parital attribute or text using end characters
+		
+			//tagname[ends-with(@prop , 'pvalue')]
+			//tagname[ends-with(text() , 'text end chars')]	
+---------------------------------------------------------------------------
+Example 8:--->
+		Recognize duplicate objects at webpage
+		
+		Syntax:-->
+					(xpath expression)[int position]
+					
+<html>
+<body>
+	<div class="form">
+		<input id="sample" name="user"></input>  
+	</div>
+	<div class="form">
+		<input id="sample" name="user"></input>  ------>>>>TargetElement	
+	</div>
+</body>
+</html>			
+
+
+	xpath Selector:-->
+			
+					(//input[@id='sample'])[2]
+					
+					
+				
+----------------------------------------------------------------------------
+Example9:-->
+		Recognize object using following sibling
+
+HtmlSource:-->
+
+		<div class="origin">
+			<input id="firstname" name="new">
+			<div class="origin">            --------------------------->Target Element
+		</div>
+		
+	Syntax:-->
+			
+			//input[@id='firstname']/following-sibling::div
+		
+		
+--------------------------------------------------------------------------------		
+Example9:-->
+		Recognize object using following sibling. When multiple Element Available
+
+HtmlSource:-->
+
+		<div class="origin">
+			<input id="firstname" name="new">
+			<div class="origin">
+			<div class="roundtrip">   
+			<div class="origin">			 --------------------------->Target Element
+			<div class="oneway">        
+		</div>	
+		
+		
+		//input[@id='firstname']/following-sibling::div[3]
+---------------------------------------------------------------------------
+Example9:-->
+		Recognize object using preceding sibling
+
+HtmlSource:-->
+
+		<div class="origin">
+			<div class="origin">            --------------------------->Target Element
+			<input id="firstname" name="new">
+		</div>
+		
+
+	Syntax:-->
+			//SiblingElement/preceding-sibling::tagname
+		
+		//input[@id='Firstname']/preceding-sibling::div
+		
+--------------------------------------------------------------------------------		
+Example9:-->
+		Recognize object using preceding sibling. When multiple Element Available
+
+HtmlSource:-->
+
+		<div class="origin">
+			<div class="origin">
+			<div class="roundtrip">   
+			<div class="origin">		--------------------------->Target Element
+			<div class="oneway">    
+			<input id="firstname" name="new">    
+		</div>	
+		
+		
+		//input[@id='firstname']/preceding-sibling::div[2]
+------------------------------------------------------------------------------->
+Recognize object with  ancestor:--->
+	
+	//tagname[@property='propertyvalue']/ancestor::tagname
+	Note:--> Recongize all parent tags which contain selected tagname
+
+HtmSource:-->
+		<div  id="UserList">
+			<ul id="firstrow">
+				<li> user1<li>
+				<li> user2<li>               ---->source
+				<li> user3<li>
+			</ul>
+
+			<ul id="firstrow">
+				<li> user4<li>
+				<li> user5<li>              ---->target
+				<li> user6<li>
+			</ul>
+		</div>
+Example:--->
+			
+		//*[text()='user2']/ancestor::ul/following-sibling::ul[1]/li[2]		 
+------------------------------------------------------------------------------
+WebDriver WebElement locator:--->
+
+		* WebElement locator is firefox extension [plug in]
+		* using WebElement locator we can desing scripts easier
+Advantages:--->
+		* Easy identification of xpath
+		* Script desing in differnt lanaguages
+
+
+	How to generate basic script and Xpath:--->
+		* Right click on element you wish to generate script
+		* Chosse javascript or xpath
+		* select approriate command and it copy to clipboard
+		
+
+
+
+

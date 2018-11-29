@@ -1,0 +1,30 @@
+
+CSV is a simple file format used to store 
+tabular data, such as a spreadsheet or database. 
+
+They mostly use the comma character to separate 
+(or delimit) data, but sometimes use other 
+characters, like semicolons. 
+
+You can also open CSV files in spreadsheet 
+programs, which make them easier to read.
+
+============================================>
+Create csv file:-->
+
+	=> Open notepad file and prepare data using
+	   comma separated.
+	   	
+	=> Save file with.csv extension
+============================================
+Download executable jar file to read data and write
+data from csv file  --->
+	
+		=> Download opencsv File...
+		=> URL --> https://mvnrepository.com/artifact/com.opencsv/opencsv/3.3
+		=> Download jar file and configure to project..
+		
+		
+		
+		
+	
