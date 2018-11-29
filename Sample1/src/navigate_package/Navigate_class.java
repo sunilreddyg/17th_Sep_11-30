@@ -10,8 +10,10 @@ public class Navigate_class {
 	{
 		
 		WebDriver driver=new FirefoxDriver();
-	    driver.navigate().to("http://www.facebook.com");
 		driver.manage().window().maximize();
+		
+		//Enter url at browser window
+		driver.navigate().to("https://facebook.com");
 		
 		//By Using DOT method
 		driver.findElement(By.xpath("//a[contains(.,'Forgotten account?')]")).click();
